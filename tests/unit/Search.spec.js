@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { shallowMount } from '@vue/test-utils'
 import Search from '@/components/Search.vue'
 
@@ -18,7 +19,7 @@ describe('Search.vue Implementation Test', () => {
 
   it('initializes with correct elements', () => {
     // check the name of the component
-    expect(wrapper.name()).toMatch('Search')
+    expect(wrapper.vm.$options.name).toMatch('Search')
 
     // check that the heading text is rendered
     expect(wrapper.findAll('h2').length).toEqual(1)
@@ -75,9 +76,11 @@ describe('Search.vue Behavioral Test', () => {
     expect(wrapper.findAll('button').at(1).element.disabled).toBeTruthy()
   })
 
-  it('enables the two buttons when a city is entered', () => {
+  it('enables the two buttons when a city is entered', async () => {
     // set the input data for the user
     wrapper.setData({ inputCity: 'San Francisco'})
+
+    await Vue.nextTick();
 
     // check that 2 buttons are enabled
     expect(wrapper.findAll('button').length).toEqual(2)
