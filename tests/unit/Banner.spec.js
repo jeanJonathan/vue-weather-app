@@ -25,7 +25,7 @@ describe('Banner.vue Implementation Test', () => {
     })
 
     // check the name of the component
-    expect(wrapper.name()).toMatch('Banner')
+    expect(wrapper.vm.$options.name).toMatch('Banner')
 
     // check that each element of the user is initialized to empty strings
     expect(wrapper.vm.bannerMessage).toMatch('')

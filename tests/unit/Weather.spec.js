@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { shallowMount } from '@vue/test-utils'
 import Weather from '@/components/Weather.vue'
 
@@ -27,7 +28,7 @@ describe('Weather.vue Implementation Test', () => {
 
   it('initializes with correct elements', () => {
     // check the name of the component
-    expect(wrapper.name()).toMatch('Weather')
+    expect(wrapper.vm.$options.name).toMatch('Weather')
 
     // check that the heading text is rendered
     expect(wrapper.findAll('h2').length).toEqual(2)
@@ -44,7 +45,7 @@ describe('Weather.vue Implementation Test', () => {
     expect(wrapper.findAll('p').at(5).text()).toMatch('Low (Today): 0° F')
   })
 
-  it('processes valid props data', () => {
+  it('processes valid props data', async () => {
     // Update the props passed in to the Weather component
     wrapper.setProps({
       city: 'Chicago',
@@ -54,6 +55,8 @@ describe('Weather.vue Implementation Test', () => {
       lowTemperature: 42.0,
       highTemperature: 47.7
     })
+
+    await Vue.nextTick();
 
     // check that the prop data is stored as expected within the component
     expect(wrapper.vm.city).toMatch('Chicago')

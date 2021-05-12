@@ -12,7 +12,7 @@ describe('Header.vue Test', () => {
     })
 
     // check the name of the component
-    expect(wrapper.name()).toMatch('Header')
+    expect(wrapper.vm.$options.name).toMatch('Header')
 
     // check that the title is rendered
     expect(wrapper.text()).toMatch('Vue Project')

@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { shallowMount, mount } from '@vue/test-utils'
 import App from '@/App.vue'
 import axios from 'axios'
@@ -44,7 +45,7 @@ describe('Implementation Test for App.vue with Successful HTTP GET', () => {
 
   it('renders sub-components when the component is created', () => {
     // check the name of the component
-    expect(wrapper.name()).toMatch('app')
+    expect(wrapper.vm.$options.name).toMatch('app')
 
     // check that 4 of the 5 child components are rendered
     expect(wrapper.findAll('.header').exists()).toBeTruthy()
@@ -213,9 +214,11 @@ describe('Behavioral Test for App.vue with Successful HTTP GET', () => {
     expect(wrapper.findAll('p').length).toEqual(1)  // 1st element is the Banner Message
   })
 
-  it('displays the weather data for a valid search', () => {
+  it('displays the weather data for a valid search', async () => {
     // Set the input data
     wrapper.findAll('input').at(0).setValue('Chicago')
+
+    await Vue.nextTick();
 
     // check that the 2 buttons are enabled
     expect(wrapper.findAll('button').length).toEqual(2)

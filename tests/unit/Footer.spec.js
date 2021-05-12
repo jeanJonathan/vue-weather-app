@@ -12,7 +12,7 @@ describe('Footer.vue Test', () => {
     })
 
     // check the name of the component
-    expect(wrapper.name()).toMatch('Footer')
+    expect(wrapper.vm.$options.name).toMatch('Footer')
 
     // check that the title is rendered
     expect(wrapper.text()).toMatch('testdriven.io 2019')
