@@ -23,4 +23,4 @@ coverage:
   stage: test
   script:
     - npm run test:coverage
-  coverage: '/All files\s*\|\s*(\d+\.?\d+)%/''
+  coverage: '/All files\s*\|\s*(\d+\.?\d+)%/'
