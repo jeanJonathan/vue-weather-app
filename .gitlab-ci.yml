@@ -18,3 +18,9 @@ test:
   stage: test
   script:
     - npm run test:unit
+
+coverage:
+  stage: test
+  script:
+    - npm run test:coverage
+  coverage: '/All files\s*\|\s*(\d+\.?\d+)%/''
