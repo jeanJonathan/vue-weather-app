@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import { shallowMount } from '@vue/test-utils'
-import Banner from '../Banner.vue'
+import WeatherBanner from '../WeatherBanner.vue'
 
-describe('Banner.vue Implementation Test', () => {
+describe('WeatherBanner.vue Implementation Test', () => {
   let wrapper = null
 
   // SETUP - run prior to each unit test
@@ -18,7 +18,7 @@ describe('Banner.vue Implementation Test', () => {
 
   it('initializes with correct elements', () => {
     // render the component
-    wrapper = shallowMount(Banner, {
+    wrapper = shallowMount(WeatherBanner, {
       propsData: {
         bannerMessage: '',
         bannerType: ''
@@ -33,7 +33,7 @@ describe('Banner.vue Implementation Test', () => {
 
   it('initializes with error message', () => {
     // render the component
-    wrapper = shallowMount(Banner, {
+    wrapper = shallowMount(WeatherBanner, {
       propsData: {
         bannerMessage: 'Banner message 123',
         bannerType: 'Error'
@@ -48,7 +48,7 @@ describe('Banner.vue Implementation Test', () => {
 
   it('initializes with success message', () => {
     // render the component
-    wrapper = shallowMount(Banner, {
+    wrapper = shallowMount(WeatherBanner, {
       propsData: {
         bannerMessage: 'Banner message 456',
         bannerType: 'Success'
@@ -63,7 +63,7 @@ describe('Banner.vue Implementation Test', () => {
 
   it('initializes with info message', () => {
     // render the component
-    wrapper = shallowMount(Banner, {
+    wrapper = shallowMount(WeatherBanner, {
       propsData: {
         bannerMessage: 'Banner message 789',
         bannerType: 'Info'
@@ -78,7 +78,7 @@ describe('Banner.vue Implementation Test', () => {
 
   it('emits an event when the clear button is clicked', () => {
     // render the component
-    wrapper = shallowMount(Banner, {
+    wrapper = shallowMount(WeatherBanner, {
       propsData: {
         bannerMessage: 'Banner message 123',
         bannerType: 'Error'

@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach, vi, mockReset } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 
 import { shallowMount, mount, flushPromises } from '@vue/test-utils'
 import App from '../../App.vue'
@@ -52,9 +52,9 @@ describe('Implementation Test for App.vue with Successful HTTP GET', () => {
     const header = wrapper.findAll('.header')
     expect(header.length).toEqual(1)
     const footer = wrapper.findAll('.footer')
-    expect(header.length).toEqual(1)
+    expect(footer.length).toEqual(1)
     const banner = wrapper.findAll('.banner')
-    expect(header.length).toEqual(1)
+    expect(banner.length).toEqual(1)
     const search = wrapper.findAll('.weather-search')
     expect(search.length).toEqual(1)
     const results = wrapper.findAll('.weather-results')

@@ -6,14 +6,13 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
 const emit = defineEmits(['clear-banner'])
 
 // ----
 // Data
 // ----
-const name = 'Banner'
 const props = defineProps({
   // Message to display on banner
   bannerMessage: String,

@@ -1,16 +1,15 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import Vue from 'vue';
 import { shallowMount, flushPromises } from '@vue/test-utils'
-import Weather from '@/components/Weather.vue'
+import WeatherResult from '@/components/WeatherResult.vue'
 
 
-describe('Weather.vue Implementation Test', () => {
+describe('WeatherResult.vue Implementation Test', () => {
   let wrapper = null
 
   // SETUP - run before to each unit test
   beforeEach(() => {
     // render the component
-    wrapper = shallowMount(Weather, {
+    wrapper = shallowMount(WeatherResult, {
       propsData: {
         city: '',
         weatherSummary: '',
