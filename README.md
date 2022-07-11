@@ -2,9 +2,9 @@
 
 The Vue Weather App is the application created for the following blog post on [TestDriven.io](https://testdriven.io):
 
-[A Guide to Unit Testing Vue Components](https://testdriven.io/blog/)
+[A Guide to Unit Testing Vue Components](https://testdriven.io/blog/vue-unit-testing/)
 
-<img src="/src/assets/guide_unit_tesing_vue_components.png" alt="Vue Weather App Social Card" width="500"/>
+<a href="https://testdriven.io/blog/vue-unit-testing/"><img src="/src/assets/guide_unit_tesing_vue_components.png" alt="Vue Weather App Social Card" width="500"/></a>
 
 ## Description
 
@@ -19,7 +19,7 @@ This guide uses the following technologies/tools:
 
 ## Example
 
-<img src="/src/assets/vue_weather_app_screenshot.png" alt="Vue Weather App Screenshot" width="350"/>
+<img src="/src/assets/vue_weather_app_screenshot.png" alt="Vue Weather App Screenshot" width="420"/>
 
 ## Installation Instructions
 
