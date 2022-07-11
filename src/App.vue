@@ -1,20 +1,20 @@
 <template>
   <div class="grid-container">
-    <Header class="header" v-bind:title="title"></Header>
-    <Banner class="banner" v-bind:bannerMessage="messageToDisplay" v-bind:bannerType="messageType" v-on:clear-banner="clearMessage"></Banner>
-    <Search class="weather-search" v-on:search-city="searchCity"></Search>
-    <Weather class="weather-results" v-bind="weatherData" v-if="validWeatherData" v-on:clear-weather-data="resetData"></Weather>
-    <Footer class="footer" v-bind:message="footerMessage"></Footer>
+    <WeatherHeader class="header" v-bind:title="title"></WeatherHeader>
+    <WeatherBanner class="banner" v-bind:bannerMessage="messageToDisplay" v-bind:bannerType="messageType" v-on:clear-banner="clearMessage"></WeatherBanner>
+    <WeatherSearch class="weather-search" v-on:search-city="searchCity"></WeatherSearch>
+    <WeatherResult class="weather-results" v-bind="weatherData" v-if="validWeatherData" v-on:clear-weather-data="resetData"></WeatherResult>
+    <WeatherFooter class="footer" v-bind:message="footerMessage"></WeatherFooter>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import Footer from '@/components/Footer.vue'
-import Header from '@/components/Header.vue'
-import Banner from '@/components/Banner.vue'
-import Search from '@/components/Search.vue'
-import Weather from '@/components/Weather.vue'
+import WeatherFooter from '@/components/WeatherFooter.vue'
+import WeatherHeader from '@/components/WeatherHeader.vue'
+import WeatherBanner from '@/components/WeatherBanner.vue'
+import WeatherSearch from '@/components/WeatherSearch.vue'
+import WeatherResult from '@/components/WeatherResult.vue'
 import axios from 'axios'
 
 // ----

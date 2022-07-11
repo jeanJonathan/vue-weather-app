@@ -2,110 +2,107 @@
 
 The Vue Weather App is the application created for the following blog post on [TestDriven.io](https://testdriven.io):
 
-[A Guide to Unit Testing Vue Components](https://testdriven.io/blog/)
+[A Guide to Unit Testing Vue Components](https://testdriven.io/blog/vue-unit-testing/)
+
+<a href="https://testdriven.io/blog/vue-unit-testing/"><img src="/src/assets/guide_unit_tesing_vue_components.png" alt="Vue Weather App Social Card" width="500"/></a>
 
 ## Description
 
 The Vue Weather App allows the user to search for the current weather for a city.  This application was developed to provide examples of how to unit test Vue components.
 
+This guide uses the following technologies/tools:
+
+1. [Vue 3](https://vuejs.org) (with the [Composition API](https://vuejs.org/guide/introduction.html#api-styles))
+1. [vite](https://vitejs.dev)
+1. [vitest](https://vitest.dev)
+1. [vue-test-utils](https://test-utils.vuejs.org)
+
 ## Example
 
-![Alt text](/blogpost_screenshots/VueWeatherApp_Walkthrough_Step4.png?raw=true "Vue Weather App Example")
+<img src="/src/assets/vue_weather_app_screenshot.png" alt="Vue Weather App Screenshot" width="420"/>
 
 ## Installation Instructions
 
-### Setting Up a Vue Project using the Vue CLI
+These instructions demonstrate how to create the Vue Weather App locally on your computer.
 
-The Vue CLI is the recommended tool for developing Vue applications.  The goal of the Vue CLI is to allow you to easily create a Vue project and start developing right away.
+### Pre-requisites
 
-#### Installing the Vue CLI
+The Vue tooling utilizes `npm` for its set of tools to help develop Vue applications.
 
-The Vue CLI requires the following tools be installed first (pre-requisites):
+Before starting, make sure that the following tools are installed on your computer:
 
-* Node (JavaScript runtime)
-* npm (Node Package Manager)
+* [Node](https://nodejs.org/en/)
+* [npm (Node Package Manager)](https://www.npmjs.com)
 
-The Vue CLI is a package that you install using `npm`.  Instead of creating a whole new toolchain for the Vue CLI, the creators of the tool are taking advantage of an existing ecosystem (npm) to develop the set of tools to help develop Vue applications.
-
-The first step in this installation process is downloading Node and npm (Node Package Manager); they are conveniently installed together.
-
-As of January 2020, the Vue CLI requires that you have Node v8.9 or higher.  To install Node and npm, start by going to the [NodeJS website](https://nodejs.org/en/):
-
-![Alt text](/blogpost_screenshots/Chapter12_NodeJS_Website.png?raw=true "NodeJS Website")
-
-I would recommend installing the current LTS (Long-Term Support) version of Node.  We are using Node to help us install the Vue CLI, so we don't need the latest features of Node.  It's best to stick with a stable build for this situation.
-
-Once you download the installation file, you should see a window similar to this:
-
-![Alt text](/blogpost_screenshots/Chapter12_NodeJS_Installation.png?raw=true "NodeJS Installation")
-
-This installation window is for MacOS, but it illustrates that Node and npm are being installed together.
-
-Follow the instructions for installing Node/npm, which will be different depending on the operating system (MacOS, Windows, Linux, etc.) that you are using.
+The first step in this installation process is downloading Node and npm (Node Package Manager); they are conveniently installed together.  Follow the installation instructions at [https://nodejs.org/en/](https://nodejs.org/en/).
 
 After the installation is complete, you can check that Node is installed by going to your command line (i.e., terminal) and checking the version of Node and npm that are installed:
 
 ```sh
 $ node -v
-v10.16.0
+v16.16.0
 
 $ npm -v
-6.10.1
+8.13.2
 ```
 
-Now that Node and npm are installed, we are ready to install the Vue CLI.  The installation of the Vue CLI requires administrative privileges (so you may need to run with 'sudo'):
-
-```sh
-$ npm install -g @vue/cli
-```
-
-This command to install the Vue CLI is using `npm` to globally (`-g` flag) install the Vue CLI package.
-
-> Note: These installation instructions assume that you are performing a new installation of the Vue CLI.
->
-> There was a significant change in the Vue CLI between v2 and v3, as the package name changed from vue-cli to @vue/cli.
->
-> If you worked with the older version (v1.x or v2.x) of the Vue CLI in the past, you need to uninstall it first using:
->   `npm uninstall vue-cli -g`
-
-After the installation is complete, you can check that you have access to the `vue` command:
-
-```sh
-$ vue --version
-3.9.2
-```
-
-#### Working with the Vue Weather App
+### Installation
 
 If you would like to run the Vue Weather App on your local machine, you will need to follow these instructions:
 
 ```sh
 $ git clone git@gitlab.com:patkennedy79/vue-weather-app.git
 $ cd vue-weather-app
-$ sudo npm install
+$ npm install
 ```
-
-The installation of the Vue CLI requires administrative privileges (so you may need to run with 'sudo').
 
 Additionally, you will need to create a free account at [Open Weather](https://openweathermap.org) and get an API key for using their API service.  The API key can be found in your account page under the 'API Keys' tab.  The API key needs to be included in the `App` component (defined in /src/App.vue) in the data section:
 
 ```javascript
 // API key from openweathermap.org - Unique to each person
-openweathermapApiKey: ''
+const openweathermapApiKey = ref('')
 ```
 
 ## Running the Application
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+All the `npm` commands that can be run for the project are defined in the `"scripts"` section of *package.json*.
+
+### Run Development Server (with hot-reload)
+
+```sh
+npm run dev
 ```
 
-### Run your unit tests
+### Compile and Minify for Production
+
+```sh
+npm run build
 ```
+
+### Run Unit Tests with Vitest
+
+```sh
 npm run test:unit
+```
+
+### Check Coverage of Unit Tests
+
+```sh
+npm run test:coverage
+```
+
+### Check Coverage Results on Webpage
+
+```sh
+npm run test:ui
+```
+
+### Lint with ESLint
+
+```sh
+npm run lint
 ```
 
 ## Additional Resources
 
-VueJS Documentation: https://vuejs.org/v2/guide/
+Vue Documentation: [https://vuejs.org](https://vuejs.org)

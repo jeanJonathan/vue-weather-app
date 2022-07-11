@@ -1,13 +1,13 @@
 import { describe, it, expect } from 'vitest'
 
 import { shallowMount } from '@vue/test-utils'
-import Header from '../Header.vue'
+import WeatherHeader from '../WeatherHeader.vue'
 
 
-describe('Header.vue Test', () => {
+describe('WeatherHeader.vue Test', () => {
   it('renders message when component is created', () => {
     // render the component
-    const wrapper = shallowMount(Header, {
+    const wrapper = shallowMount(WeatherHeader, {
       propsData: {
         title: 'Vue Project'
       }

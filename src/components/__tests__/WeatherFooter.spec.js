@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest'
 
 import { shallowMount } from '@vue/test-utils'
-import Footer from '../Footer.vue'
+import WeatherFooter from '../WeatherFooter.vue'
 
 describe('Footer.vue Test', () => {
   it('renders message when component is created', () => {
     // render the component
-    const wrapper = shallowMount(Footer, {
+    const wrapper = shallowMount(WeatherFooter, {
       propsData: {
         message: 'testdriven.io - 2022'
       }
