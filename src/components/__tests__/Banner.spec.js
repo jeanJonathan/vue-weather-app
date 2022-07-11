@@ -1,6 +1,7 @@
-import { shallowMount } from '@vue/test-utils'
-import Banner from '@/components/Banner.vue'
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
+import { shallowMount } from '@vue/test-utils'
+import Banner from '../Banner.vue'
 
 describe('Banner.vue Implementation Test', () => {
   let wrapper = null
@@ -12,7 +13,7 @@ describe('Banner.vue Implementation Test', () => {
 
   // TEARDOWN - run after to each unit test
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
 
   it('initializes with correct elements', () => {
@@ -23,9 +24,6 @@ describe('Banner.vue Implementation Test', () => {
         bannerType: ''
       }
     })
-
-    // check the name of the component
-    expect(wrapper.vm.$options.name).toMatch('Banner')
 
     // check that each element of the user is initialized to empty strings
     expect(wrapper.vm.bannerMessage).toMatch('')

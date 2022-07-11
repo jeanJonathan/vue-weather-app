@@ -5,31 +5,40 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Banner',
-  props: {
-    // Message to display on banner
-    bannerMessage: String,
-    // Banner Types: Info, Error, or Success
-    bannerType: String
-  },
-  computed: {
-    bannerBackgroundColor () {
-      if (this.bannerType === 'Error') {
-        return 'red'
-      } else if (this.bannerType === 'Success') {
-        return 'green'
-      } else {
-        return 'blue'
-      }
-    }
-  },
-  methods: {
-    clearBannerMessage () {
-      this.$emit('clear-banner')
-    }
+<script setup>
+import { ref, computed } from 'vue'
+
+const emit = defineEmits(['clear-banner'])
+
+// ----
+// Data
+// ----
+const name = 'Banner'
+const props = defineProps({
+  // Message to display on banner
+  bannerMessage: String,
+  // Banner Types: Info, Error, or Success
+  bannerType: String
+})
+
+// -------------------
+// Computed Properties
+// -------------------
+const bannerBackgroundColor = computed(() => {
+  if (props.bannerType === 'Error') {
+    return 'red'
+  } else if (props.bannerType === 'Success') {
+    return 'green'
+  } else {
+    return 'blue'
   }
+})
+
+// -------
+// Methods
+// -------
+const clearBannerMessage = () => {
+  emit('clear-banner')
 }
 </script>
 

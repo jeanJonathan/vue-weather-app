@@ -1,5 +1,6 @@
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import Vue from 'vue';
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, flushPromises } from '@vue/test-utils'
 import Weather from '@/components/Weather.vue'
 
 
@@ -23,13 +24,10 @@ describe('Weather.vue Implementation Test', () => {
 
   // TEARDOWN - run after to each unit test
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
 
   it('initializes with correct elements', () => {
-    // check the name of the component
-    expect(wrapper.vm.$options.name).toMatch('Weather')
-
     // check that the heading text is rendered
     expect(wrapper.findAll('h2').length).toEqual(2)
     expect(wrapper.findAll('h2').at(0).text()).toMatch('Weather Summary')
@@ -56,7 +54,8 @@ describe('Weather.vue Implementation Test', () => {
       highTemperature: 47.7
     })
 
-    await Vue.nextTick();
+    // Wait until the DOM updates
+    await flushPromises()
 
     // check that the prop data is stored as expected within the component
     expect(wrapper.vm.city).toMatch('Chicago')
