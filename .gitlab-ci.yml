@@ -1,4 +1,4 @@
-image: node:10.16.0
+image: node:16.16.0
 
 cache:
   untracked: true
@@ -8,15 +8,19 @@ cache:
 stages:
   - setup
   - test
-  - build
-  - deploy
 
 setup:
   stage: setup
   script:
-    - npm ci
+    - npm install
 
 test:
   stage: test
   script:
     - npm run test:unit
+
+coverage:
+  stage: test
+  script:
+    - npm run test:coverage
+  coverage: '/All files\s*\|\s*(\d+\.?\d+)%/'

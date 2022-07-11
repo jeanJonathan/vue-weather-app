@@ -15,47 +15,46 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Search',
-  data () {
-    return {
-      inputCity: ''
-    }
-  },
-  methods: {
-    searchCity () {
-      this.$emit('search-city', this.inputCity)
-    },
-    clearCity () {
-      // this.$emit('reset-city')
-      this.inputCity = ''
-    }
-  },
-  computed: {
-    searchDisabled () {
-      if (this.inputCity) {
-        return false
-      } else {
-        return true
-      }
-    },
-    clearDisabled () {
-      if (this.inputCity) {
-        return false
-      } else {
-        return true
-      }
-    }
+<script setup>
+import { ref, computed } from 'vue'
+
+const emit = defineEmits(['search-city'])
+
+// ----
+// Data
+// ----
+const inputCity = ref('')
+
+// -------------------
+// Computed Properties
+// -------------------
+const searchDisabled = computed(() => {
+  if (inputCity.value) {
+    return false
   }
+  return true
+})
+const clearDisabled = computed(() => {
+  if (inputCity.value) {
+    return false
+  }
+  return true
+})
+
+// -------
+// Methods
+// -------
+const searchCity = () => {
+  emit('search-city', inputCity.value)
+}
+
+const clearCity = () => {
+  inputCity.value = ''
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-/* Weather Search Styling
-*************************/
 .weather-search {
   margin: auto;
 }

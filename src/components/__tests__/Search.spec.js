@@ -1,6 +1,7 @@
-import Vue from 'vue';
-import { shallowMount } from '@vue/test-utils'
-import Search from '@/components/Search.vue'
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+
+import { shallowMount, flushPromises } from '@vue/test-utils'
+import Search from '../Search.vue'
 
 
 describe('Search.vue Implementation Test', () => {
@@ -14,13 +15,10 @@ describe('Search.vue Implementation Test', () => {
 
   // TEARDOWN - run after to each unit test
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
 
   it('initializes with correct elements', () => {
-    // check the name of the component
-    expect(wrapper.vm.$options.name).toMatch('Search')
-
     // check that the heading text is rendered
     expect(wrapper.findAll('h2').length).toEqual(1)
     expect(wrapper.findAll('h2').at(0).text()).toMatch('Weather Search')
@@ -39,7 +37,7 @@ describe('Search.vue Implementation Test', () => {
 
   it('emits a custom event when searchCity() is called', () => {
     // set the input data for the user
-    wrapper.setData({ inputCity: 'Denver'})
+    wrapper.vm.inputCity = 'Denver'
 
     wrapper.vm.searchCity()
 
@@ -64,7 +62,7 @@ describe('Search.vue Behavioral Test', () => {
 
   // TEARDOWN - run after to each unit test
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
 
   it('initializes with the two buttons disabled', () => {
@@ -78,9 +76,10 @@ describe('Search.vue Behavioral Test', () => {
 
   it('enables the two buttons when a city is entered', async () => {
     // set the input data for the user
-    wrapper.setData({ inputCity: 'San Francisco'})
+    wrapper.vm.inputCity = 'San Francisco'
 
-    await Vue.nextTick();
+    // Wait until the DOM updates
+    await flushPromises()
 
     // check that 2 buttons are enabled
     expect(wrapper.findAll('button').length).toEqual(2)
@@ -92,7 +91,7 @@ describe('Search.vue Behavioral Test', () => {
 
   it('clears the input when clearCity() is called', () => {
     // set the input data for the user
-    wrapper.setData({ inputCity: 'San Francisco'})
+    wrapper.vm.inputCity = 'San Francisco'
 
     wrapper.vm.clearCity()
 

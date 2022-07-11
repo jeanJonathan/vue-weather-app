@@ -1,5 +1,7 @@
+import { describe, it, expect } from 'vitest'
+
 import { shallowMount } from '@vue/test-utils'
-import Header from '@/components/Header.vue'
+import Header from '../Header.vue'
 
 
 describe('Header.vue Test', () => {
@@ -10,9 +12,6 @@ describe('Header.vue Test', () => {
         title: 'Vue Project'
       }
     })
-
-    // check the name of the component
-    expect(wrapper.vm.$options.name).toMatch('Header')
 
     // check that the title is rendered
     expect(wrapper.text()).toMatch('Vue Project')

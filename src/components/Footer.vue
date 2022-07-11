@@ -4,13 +4,10 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer',
-  props: {
-    message: String
-  }
-}
+<script setup>
+const props = defineProps({
+  message: String
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -32,30 +32,31 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Weather',
-  props: {
-    city: String,
-    weatherSummary: String,
-    weatherDescription: String,
-    currentTemperature: Number,
-    lowTemperature: Number,
-    highTemperature: Number
-  },
-  methods: {
-    clearWeather () {
-      this.$emit('clear-weather-data')
-    }
-  }
+<script setup>
+const emit = defineEmits(['clear-weather-data'])
+
+// ----
+// Data
+// ----
+const props = defineProps({
+  city: String,
+  weatherSummary: String,
+  weatherDescription: String,
+  currentTemperature: Number,
+  lowTemperature: Number,
+  highTemperature: Number
+})
+
+// -------
+// Methods
+// -------
+const clearWeather = () => {
+  emit('clear-weather-data')
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-/* Weather Results Styling
-**************************/
 .weather-results-container {
   margin: auto;
   display: flex;
