@@ -47,7 +47,7 @@ const messageToDisplay = ref('')
 const messageType = ref('Info')
 
 // API key from openweathermap.org - Unique to each person
-const openweathermapApiKey = ref('')
+const openweathermapApiKey = ref('b0477c33959d9d3fa5a71d3ed1353c1a')
 
 // ---------------
 // Lifecycle Hooks

@@ -43,7 +43,7 @@ describe('WeatherResult.vue Implementation Test', () => {
   })
 
   it('processes valid props data', async () => {
-    // Update the props passed in to the Weather component
+    // Update the props passed in to the WeatherResult component
     wrapper.setProps({
       city: 'Chicago',
       weatherSummary: 'Cloudy',

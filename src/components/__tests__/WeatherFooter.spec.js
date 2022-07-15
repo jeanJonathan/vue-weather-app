@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
-
 import { shallowMount } from '@vue/test-utils'
 import WeatherFooter from '../WeatherFooter.vue'
 
-describe('Footer.vue Test', () => {
+describe('WeatherFooter.vue Test', () => {
   it('renders message when component is created', () => {
     // render the component
     const wrapper = shallowMount(WeatherFooter, {

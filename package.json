@@ -1,6 +1,6 @@
 {
-  "name": "vue-weather-app2",
-  "version": "0.0.0",
+  "name": "vue-weather-app",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

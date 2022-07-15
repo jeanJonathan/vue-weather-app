@@ -1,5 +1,4 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-
 import { shallowMount, mount, flushPromises } from '@vue/test-utils'
 import App from '../../App.vue'
 import axios from 'axios'
@@ -73,7 +72,7 @@ describe('Implementation Test for App.vue with Successful HTTP GET', () => {
   it('does load the weather data when a successful HTTP GET occurs', async () => {
     wrapper.vm.searchCity('Chicago')
 
-    // Wait until the DOM updates
+    // Wait until all Promises are resolved and the DOM updates
     await flushPromises()
 
     expect(axios.get).toHaveBeenCalledTimes(1)
@@ -148,7 +147,7 @@ describe('Implementation Test for App.vue with Failed HTTP GET', () => {
     expect(axios.get).toHaveBeenCalledTimes(1)
     expect(axios.get).toBeCalledWith(expect.stringMatching(/Chicago/))
 
-    // Wait until the DOM updates
+    // Wait until all Promises are resolved and the DOM updates
     await flushPromises()
 
     // Check that there is no user data loaded when the GET request fails

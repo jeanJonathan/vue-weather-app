@@ -1,5 +1,4 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-
 import { shallowMount, flushPromises } from '@vue/test-utils'
 import WeatherSearch from '../WeatherSearch.vue'
 
