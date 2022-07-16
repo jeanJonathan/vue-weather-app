@@ -47,7 +47,7 @@ const messageToDisplay = ref('')
 const messageType = ref('Info')
 
 // API key from openweathermap.org - Unique to each person
-const openweathermapApiKey = ref('b0477c33959d9d3fa5a71d3ed1353c1a')
+const openweathermapApiKey = ref('')
 
 // ---------------
 // Lifecycle Hooks
@@ -114,36 +114,30 @@ const clearMessage = () => {
 <style>
 @import './assets/base.css';
 
-/* CSS Grid Styling
-*******************/
-.header {
-  grid-area: header;
-}
-.banner {
-  grid-area: banner;
-}
-.weather-search {
-  grid-area: search;
-}
-.weather-results {
-  grid-area: results;
-}
-.footer {
-  grid-area: footer;
+.grid-container {
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(20px, auto);
+  gap: 20px;
+  max-width: 1080px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 10% 35% 35% 10%;
-  grid-auto-rows: minmax(20px, auto);
-  grid-gap: 10px;
-  max-width: 1080px;
-  margin: auto;
-  grid-template-areas:
-    "header   header     header    header"
-    "banner   banner     banner    banner"
-    "...      search     search    ..."
-    "...      results    results   ..."
-    "footer   footer     footer    footer";
+.header {
+  grid-column: span 3;
 }
+.banner {
+  grid-column: span 3;
+}
+.weather-search {
+  grid-column: 2 / span 1;
+}
+.weather-results {
+  grid-column: 2 / span 1;
+}
+.footer {
+  grid-column: span 3;
+}
+
 </style>
