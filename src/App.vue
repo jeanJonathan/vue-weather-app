@@ -47,7 +47,7 @@ const messageToDisplay = ref('')
 const messageType = ref('Info')
 
 // API key from openweathermap.org - Unique to each person
-const openweathermapApiKey = ref('')
+const openweathermapApiKey = ref('b0477c33959d9d3fa5a71d3ed1353c1a')
 
 // ---------------
 // Lifecycle Hooks
@@ -70,6 +70,7 @@ const searchCity = (inputCity) => {
   axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + inputCity + '&units=imperial&APPID=' + openweathermapApiKey.value)
     .then((response) => {
       // handle success
+      console.log("In searchCity():then...")
       console.log(response)
 
       weatherData.value.city = response.data.name
