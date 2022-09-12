@@ -1,13 +1,13 @@
 <template>
-  <div class="weather-search">
-    <div class="weather-search-title">
+  <div class="city-search">
+    <div class="city-search-title">
       <h2>Weather Search</h2>
     </div>
-    <div class="weather-search-input">
+    <div class="city-search-input">
       <label for="cityInput">City:</label>
       <input type="text" id="cityInput" v-model="inputCity" placeholder="Enter a city name...">
       <br>
-      <div class="weather-search-buttons">
+      <div class="city-search-buttons">
         <button type="submit" v-on:click="searchCity" v-bind:disabled="searchDisabled">Search</button>
         <button type="reset" v-on:click="clearCity" v-bind:disabled="clearDisabled">Clear</button>
       </div>
@@ -55,33 +55,33 @@ const clearCity = () => {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.weather-search {
+.city-search {
   margin: auto;
 }
 
-.weather-search-title h2 {
+.city-search-title h2 {
   text-align: center;
   margin-bottom: 0.5em;
 }
 
-.weather-search-buttons {
+.city-search-buttons {
   margin: 0.5em;
 }
 
-.weather-search-input {
+.city-search-input {
   text-align: center;
 }
 
-.weather-search-input label {
+.city-search-input label {
   font-size: 1.35em;
   margin-right: 0.5em;
 }
 
-.weather-search-input input {
+.city-search-input input {
   font-size: 1.1em;
 }
 
-.weather-search-buttons button {
+.city-search-buttons button {
   background-color: blue;
   color: white;
   padding: 8px 16px;
@@ -92,12 +92,12 @@ const clearCity = () => {
   margin: 6px;
 }
 
-.weather-search-buttons button:hover {
+.city-search-buttons button:hover {
   color: black;
   cursor: pointer;
 }
 
-.weather-search-buttons button:disabled {
+.city-search-buttons button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

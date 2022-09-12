@@ -1,7 +1,7 @@
 <template>
-  <header>
-    <h1>{{ title }}</h1>
-  </header>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
 </template>
 
 <script setup>
@@ -14,6 +14,8 @@ const props = defineProps({
 <style scoped>
 header {
   margin: auto;
+  text-align: center;
+  margin-bottom: 2em;
 }
 
 header h1 {

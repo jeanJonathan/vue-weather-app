@@ -14,5 +14,6 @@ const props = defineProps({
 <style scoped>
 footer {
   margin: auto;
+  text-align: center;
 }
 </style>
