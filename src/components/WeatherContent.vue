@@ -1,11 +1,3 @@
-<template>
-    <div class="content">
-        <WeatherBanner class="banner" v-bind:bannerMessage="messageToDisplay" v-bind:bannerType="messageType" v-on:clear-banner="clearMessage"></WeatherBanner>
-        <CitySearch class="weather-search" v-on:search-city="searchCity"></CitySearch>
-        <CityList class="cities"></CityList>
-    </div>
-</template>
-
 <script setup>
 import { ref, onMounted } from 'vue'
 import WeatherBanner from '@/components/WeatherBanner.vue'
@@ -27,7 +19,7 @@ const messageToDisplay = ref('')
 const messageType = ref('Info')
 
 // API key from openweathermap.org - Unique to each person
-const openweathermapApiKey = ref('')
+const openweathermapApiKey = ref('b0477c33959d9d3fa5a71d3ed1353c1a')
 
 // ---------------
 // Lifecycle Hooks
@@ -109,8 +101,18 @@ const clearMessage = () => {
 }
 </script>
 
+<template>
+    <div class="content">
+        <WeatherBanner class="banner" v-bind:bannerMessage="messageToDisplay" v-bind:bannerType="messageType" v-on:clear-banner="clearMessage"></WeatherBanner>
+        <CitySearch class="weather-search" v-on:search-city="searchCity"></CitySearch>
+        <CityList class="cities"></CityList>
+    </div>
+</template>
+
 <style>
-.div {
+.content {
   margin: auto;
+  max-width: 1080px;
+  padding-bottom: 1em;
 }
 </style>

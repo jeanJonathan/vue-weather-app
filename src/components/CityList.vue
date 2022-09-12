@@ -36,14 +36,12 @@ const store = useCitiesStore()
   width: 100%;
   padding: 1em;
   margin: 0.5em 0;
-  border-radius: 4px;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  border-radius: 2px;
+  border-radius: 4px;
   background: #fff;
   box-shadow: 0 6px 8px rgba(102,119,136,.03), 0 1px 2px rgba(102,119,136,.3);
 }
@@ -64,20 +62,5 @@ p + p {
 .clear-button {
   display: flex;
   justify-content: center;
-}
-button {
-  background-color: blue;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  font-size: 1em;
-  border-radius: 8px;
-  border: none;
-  margin: 6px auto;
-}
-
-button:hover {
-  color: black;
-  cursor: pointer;
 }
 </style>

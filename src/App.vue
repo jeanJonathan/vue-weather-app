@@ -2,7 +2,10 @@
     <div class="container">
         <WeatherHeader class="header" v-bind:title="title"></WeatherHeader>
         <WeatherContent class="content"></WeatherContent>
-        <WeatherFooter class="footer" v-bind:message="footerMessage"></WeatherFooter>
+        <WeatherFooter class="footer">
+            <template v-slot:message>Vue Weather App from TestDriven.io Blog</template>
+            <template v-slot:link><a href="https://testdriven.io">TestDriven.io</a></template>
+        </WeatherFooter>
     </div>
 </template>
 
@@ -28,7 +31,5 @@ const footerMessage = ref('testdriven.io - 2022')
 
 .container {
   margin: auto;
-  padding: 20px;
-  max-width: 1080px;
 }
 </style>
