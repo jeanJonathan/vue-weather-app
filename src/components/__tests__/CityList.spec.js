@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { shallowMount, flushPromises } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import CityList from '@/components/CityList.vue'
 import { createTestingPinia } from '@pinia/testing'
 import { useCitiesStore } from '@/stores/cities'

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { shallowMount, mount, flushPromises } from '@vue/test-utils'
+import { shallowMount, flushPromises } from '@vue/test-utils'
 import WeatherContent from '../WeatherContent.vue'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'

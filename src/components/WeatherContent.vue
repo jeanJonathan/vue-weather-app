@@ -18,8 +18,8 @@ const messageToDisplay = ref('')
 // Message type (Info, Success, or Error) to display on banner
 const messageType = ref('Info')
 
-// API key from openweathermap.org - Unique to each person
-const openweathermapApiKey = ref('b0477c33959d9d3fa5a71d3ed1353c1a')
+// API key from openweathermap.org
+const openweathermapApiKey = ref('')
 
 // ---------------
 // Lifecycle Hooks
@@ -28,9 +28,11 @@ onMounted(() => {
   console.log('WeatherContent.vue: onMounted() called!')
 
   // Perform a check that the API key from openweathermap.org is defined
-  if (openweathermapApiKey.value === '') {
+  if (import.meta.env.VITE_OPEN_WEATHER_API_KEY === undefined) {
     messageType.value = 'Error'
     messageToDisplay.value = 'Error! API Key needs to be loaded to use openweathermap.org!'
+  } else {
+    openweathermapApiKey.value = import.meta.env.VITE_OPEN_WEATHER_API_KEY
   }
 })
 

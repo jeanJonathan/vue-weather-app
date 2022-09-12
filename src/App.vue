@@ -21,9 +21,6 @@ import WeatherHeader from '@/components/WeatherHeader.vue'
 
 // Title of the application
 const title = ref('Vue Weather App')
-
-// Message to display in the footer
-const footerMessage = ref('testdriven.io - 2022')
 </script>
 
 <style>

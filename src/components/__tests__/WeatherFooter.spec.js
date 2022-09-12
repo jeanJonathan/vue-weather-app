@@ -20,4 +20,12 @@ describe('WeatherFooter.vue Test', () => {
     expect(items.length).toEqual(1)
     expect(items[0].text()).toMatch('TestDriven.io')
   })
+
+  it('renders message when component is created without slots specified', () => {
+    // render the component
+    const wrapper = shallowMount(WeatherFooter)
+
+    // check that the title is rendered
+    expect(wrapper.text()).toMatch('Default Footer')
+  })
 })
