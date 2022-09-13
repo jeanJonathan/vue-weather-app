@@ -16,7 +16,6 @@ export const useCitiesStore = defineStore('cities', {
   
   // getters return data from the data store
   getters: {
-    getCityWeather: (state) => { return state.weatherData },
     getNumberOfCities: (state) => { return state.weatherData.length }
   },
   
@@ -34,13 +33,6 @@ export const useCitiesStore = defineStore('cities', {
           'dailyHigh': high,
           'dailyLow': low
         })
-      }
-    },
-    removeCity(name) {
-      // Check that the city is in the list before attempting to delete it
-      let index = this.weatherData.findIndex(({ cityName }) => cityName === name)
-      if (index >= 0) {
-        this.weatherData.splice(index, 1)
       }
     },
     clearAllCities() {
