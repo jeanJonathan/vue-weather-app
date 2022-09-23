@@ -1,18 +1,14 @@
 <template>
-  <footer>
-    <h1>{{ message }}</h1>
-  </footer>
+    <footer>
+        <p><slot name="message">Default Footer</slot></p>
+        <p><slot name="link"></slot></p>
+    </footer>
 </template>
 
-<script setup>
-const props = defineProps({
-  message: String
-})
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 footer {
-  margin: auto;
+  text-align: center;
+  border-top: 1px solid #88BBD6;
+  padding: 10px;
 }
 </style>

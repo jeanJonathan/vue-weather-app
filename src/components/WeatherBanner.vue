@@ -1,10 +1,3 @@
-<template>
-  <div v-show="bannerMessage" v-bind:style="{ 'background-color': bannerBackgroundColor }">
-    <span id="errorMessageClear" v-on:click="clearBannerMessage">Clear</span>
-    <p>{{ bannerMessage }}</p>
-  </div>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 
@@ -41,7 +34,13 @@ const clearBannerMessage = () => {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<template>
+  <div v-show="bannerMessage" v-bind:style="{ 'background-color': bannerBackgroundColor }">
+    <span id="errorMessageClear" v-on:click="clearBannerMessage">Clear</span>
+    <p>{{ bannerMessage }}</p>
+  </div>
+</template>
+
 <style scoped>
 div {
   width: 100%;

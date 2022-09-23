@@ -1,18 +1,18 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { shallowMount, flushPromises } from '@vue/test-utils'
-import WeatherSearch from '../WeatherSearch.vue'
+import CitySearch from '../CitySearch.vue'
 
 
-describe('WeatherSearch.vue Implementation Test', () => {
+describe('CitySearch.vue Implementation Test', () => {
   let wrapper = null
 
   // SETUP - run prior to each unit test
   beforeEach(() => {
     // render the component
-    wrapper = shallowMount(WeatherSearch)
+    wrapper = shallowMount(CitySearch)
   })
 
-  // TEARDOWN - run after to each unit test
+  // TEARDOWN - run after each unit test
   afterEach(() => {
     wrapper.unmount()
   })
@@ -50,16 +50,16 @@ describe('WeatherSearch.vue Implementation Test', () => {
   })
 })
 
-describe('Search.vue Behavioral Test', () => {
+describe('CitySearch.vue Behavioral Test', () => {
   let wrapper = null
 
   // SETUP - run prior to each unit test
   beforeEach(() => {
     // render the component
-    wrapper = shallowMount(WeatherSearch)
+    wrapper = shallowMount(CitySearch)
   })
 
-  // TEARDOWN - run after to each unit test
+  // TEARDOWN - run after each unit test
   afterEach(() => {
     wrapper.unmount()
   })

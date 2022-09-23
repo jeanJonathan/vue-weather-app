@@ -10,7 +10,7 @@ describe('WeatherBanner.vue Implementation Test', () => {
     // Do Nothing - render the components in each unit test
   })
 
-  // TEARDOWN - run after to each unit test
+  // TEARDOWN - run after each unit test
   afterEach(() => {
     wrapper.unmount()
   })
