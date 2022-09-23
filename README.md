@@ -6,6 +6,12 @@ The Vue Weather App is the application created for the following blog post on [T
 
 <a href="https://testdriven.io/blog/vue-unit-testing/"><img src="/src/assets/guide_unit_tesing_vue_components.png" alt="Vue Weather App Social Card" width="500"/></a>
 
+## Website
+
+The Vue Weather App is deployed via Netlify:
+
+[Vue Weather App - Netlify](https://snazzy-taffy-cd99f4.netlify.app)
+
 ## Description
 
 The Vue Weather App allows the user to search for the current weather for a city.  This application was developed to provide examples of how to unit test Vue components.
@@ -56,11 +62,10 @@ $ cd vue-weather-app
 $ npm install
 ```
 
-Additionally, you will need to create a free account at [Open Weather](https://openweathermap.org) and get an API key for using their API service.  The API key can be found in your account page under the 'API Keys' tab.  The API key needs to be included in the `App` component (defined in /src/App.vue) in the data section:
+Additionally, you will need to create a free account at [Open Weather](https://openweathermap.org) and get an API key for using their API service.  The API key can be found in your account page under the 'API Keys' tab.  The API key needs to be included via the `VITE_OPEN_WEATHER_API_KEY` environment variable.  For local developement, create a *env.local* file in the top-level folder of the project:
 
-```javascript
-// API key from openweathermap.org - Unique to each person
-const openweathermapApiKey = ref('')
+```sh
+VITE_OPEN_WEATHER_API_KEY=<INSERT_OPEN_WEATHER_API_KEY>
 ```
 
 ## Running the Application
