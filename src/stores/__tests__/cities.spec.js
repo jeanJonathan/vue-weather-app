@@ -25,15 +25,16 @@ describe('Data Store Test', () => {
 
     // Check that the city was added
     expect(store.getNumberOfCities).toEqual(1)
-    let savedCities = store.weatherData
-    expect(savedCities.length).toEqual(1)
-    expect(savedCities[0].cityName).toMatch('Chicago')
-    expect(savedCities[0].stateName).toMatch('Illinois')
-    expect(savedCities[0].countryAbbreviation).toMatch('US')
-    expect(savedCities[0].weatherSummary).toMatch('cloudy')
-    expect(savedCities[0].currentTemperature).toEqual(75.6)
-    expect(savedCities[0].dailyHigh).toEqual(78.9)
-    expect(savedCities[0].dailyLow).toEqual(65.2)
+    expect(store.weatherData.length).toEqual(1)
+    expect(store.weatherData[0]).toEqual({
+      'cityName': 'Chicago',
+      'stateName': 'Illinois',
+      'countryAbbreviation': 'US',
+      'weatherSummary': 'cloudy',
+      'currentTemperature': 75.6,
+      'dailyHigh': 78.9,
+      'dailyLow': 65.2
+    })
   })
 
   it('test adding a duplicate city', () => {

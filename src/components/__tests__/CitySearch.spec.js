@@ -12,7 +12,7 @@ describe('CitySearch.vue Implementation Test', () => {
     wrapper = shallowMount(CitySearch)
   })
 
-  // TEARDOWN - run after to each unit test
+  // TEARDOWN - run after each unit test
   afterEach(() => {
     wrapper.unmount()
   })
@@ -59,7 +59,7 @@ describe('CitySearch.vue Behavioral Test', () => {
     wrapper = shallowMount(CitySearch)
   })
 
-  // TEARDOWN - run after to each unit test
+  // TEARDOWN - run after each unit test
   afterEach(() => {
     wrapper.unmount()
   })

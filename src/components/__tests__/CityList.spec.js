@@ -1,13 +1,16 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import CityList from '@/components/CityList.vue'
 import { createTestingPinia } from '@pinia/testing'
 import { useCitiesStore } from '@/stores/cities'
 
-describe('CityList.vue Test', () => {
-  it('initializes with zero elements displayed', () => {
+describe('CityList.vue Test with empty data store', () => {
+  let wrapper = null
+
+  // SETUP - run prior to each unit test
+  beforeEach(() => {
     // render the component
-    const wrapper = shallowMount(CityList, {
+    wrapper = shallowMount(CityList, {
       global: {
         plugins: [
           createTestingPinia({
@@ -16,7 +19,14 @@ describe('CityList.vue Test', () => {
         ]
       }
     })
+  })
 
+  // TEARDOWN - run after each unit test
+  afterEach(() => {
+    wrapper.unmount()
+  })
+
+  it('initializes with zero elements displayed', () => {
     // check that zero city cards are displayed
     expect(wrapper.findAll('h2').length).toEqual(0)
 
@@ -24,11 +34,17 @@ describe('CityList.vue Test', () => {
     expect(wrapper.findAll('button').length).toEqual(1)
     expect(wrapper.findAll('button')[0].isVisible()).toBeFalsy()
   })
+})
 
-  it('displays city weather from the data store', async () => {
+describe('CityList.vue Test with filled data store', () => {
+  let wrapper = null
+  let store = null
+
+  // SETUP - run prior to each unit test
+  beforeEach(() => {
     // render the component and initialize the data store
     // to contain weather data for (2) cities
-    const wrapper = shallowMount(CityList, {
+    wrapper = shallowMount(CityList, {
       global: {
         plugins: [
           createTestingPinia({
@@ -62,6 +78,16 @@ describe('CityList.vue Test', () => {
       }
     })
 
+    // create the data store using the testing pinia
+    store = useCitiesStore()
+  })
+
+  // TEARDOWN - run after each unit test
+  afterEach(() => {
+    wrapper.unmount()
+  })
+  
+  it('displays city weather from the data store', () => {
     // check that two city cards are displayed
     const cityHeadings = wrapper.findAll('h2')
     expect(cityHeadings.length).toEqual(2)
@@ -86,37 +112,7 @@ describe('CityList.vue Test', () => {
     expect(wrapper.findAll('button')[0].text()).toMatch('Clear Weather Data (2)')
   })
 
-  it('calls the correct action on the data store when the weather data is cleared', async () => {
-    // render the component and initialize the data store
-    // to contain weather data for (1) city
-    const wrapper = shallowMount(CityList, {
-      global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-            initialState: {
-              cities: { 
-                weatherData: [
-                  {
-                    'cityName': 'New Orleans',
-                    'stateName': 'Louisiana',
-                    'countryAbbreviation': 'US',
-                    'weatherSummary': 'sunny',
-                    'currentTemperature': 87.6,
-                    'dailyHigh': 78.9,
-                    'dailyLow': 65.2        
-                  }
-                ]
-              }
-            }
-          })
-        ]
-      }
-    })
-
-    // create the data store using the testing pinia
-    const store = useCitiesStore()
-
+  it('calls the correct action when the weather data is cleared', async () => {
     // trigger an event when the 'Clear Weather Data' button is clicked
     wrapper.findAll('button').at(0).trigger('click')
 

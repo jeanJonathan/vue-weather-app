@@ -53,8 +53,8 @@ const searchCity = async (inputCity) => {
 
     // handle success
     console.log("Successfully retrieved coordinates for " + inputCity + ": " + response.data[0].lat + ", " + response.data[0].lon)
-    console.log(response)
 
+    // save the latitude/longitude, city name, state name, and country abbreviation
     latitude = response.data[0].lat
     longitude = response.data[0].lon
     city = response.data[0].name
@@ -67,8 +67,6 @@ const searchCity = async (inputCity) => {
     console.log(error.message)
   }
 
-  console.log('In between GET calls... latitude: ' + latitude + ', longitude: ' + longitude)
-
   if (city !== '') {
     // GET request for retrieving the current weather data using the Current
     // Weather Data API from OpenWeather (https://openweathermap.org/current) 
@@ -78,9 +76,8 @@ const searchCity = async (inputCity) => {
       // handle success
       console.log("Retrieved current temperature: " + response2.data.main.temp)
       console.log("and high/low: " + response2.data.main.temp_max + " / " + response2.data.main.temp_min)
-      console.log(response2)
 
-      // Save the weather data to the Pinia data store
+      // save the weather data to the Pinia data store
       cityStore.addCity(
         city, state, country,
         response2.data.weather[0].main,
