@@ -16,7 +16,7 @@ describe('WeatherContent.vue Tests with Successful HTTP GET calls', () => {
   beforeEach(() => {
     // Mock any GET requests to the Geocoding API of Open Weather
     // NOTE: arguments for reply are (status, data, headers)
-    const geocodingUrlBase = "http://api.openweathermap.org/geo/1.0/direct"
+    const geocodingUrlBase = "https://api.openweathermap.org/geo/1.0/direct"
     const geocodingUrl = new RegExp(`${geocodingUrlBase}/*`);
     mock.onGet(geocodingUrl).reply(200, [
       {
@@ -30,7 +30,7 @@ describe('WeatherContent.vue Tests with Successful HTTP GET calls', () => {
 
     // Mock any GET requests to the Current Weather Data API of Open Weather
     // NOTE: arguments for reply are (status, data, headers)
-    const weatherUrlBase = "http://api.openweathermap.org/data/2.5/weather"
+    const weatherUrlBase = "https://api.openweathermap.org/data/2.5/weather"
     const weatherUrl = new RegExp(`${weatherUrlBase}/*`);
     mock.onGet(weatherUrl).reply(200, {
         "weather": [
@@ -84,9 +84,9 @@ describe('WeatherContent.vue Tests with Successful HTTP GET calls', () => {
 
     // Check that two calls were made to axios.get()
     expect(mock.history.get.length).toBe(2)
-    expect(mock.history.get[0].url).toMatch('http://api.openweathermap.org/geo/1.0/direct')
+    expect(mock.history.get[0].url).toMatch('https://api.openweathermap.org/geo/1.0/direct')
     expect(mock.history.get[0].method).toMatch('get')
-    expect(mock.history.get[1].url).toMatch('http://api.openweathermap.org/data/2.5/weather')
+    expect(mock.history.get[1].url).toMatch('https://api.openweathermap.org/data/2.5/weather')
     expect(mock.history.get[1].method).toMatch('get')
 
     // check that 1 call was made to `store.addCity`
@@ -113,7 +113,7 @@ describe('WeatherContent.vue Tests with Failed HTTP GET call for coordinates', (
 
   beforeEach(() => {
     // Mock any GET requests to the Geocoding API of Open Weather to fail (404 - Not Found)
-    const geocodingUrlBase = "http://api.openweathermap.org/geo/1.0/direct"
+    const geocodingUrlBase = "https://api.openweathermap.org/geo/1.0/direct"
     const geocodingUrl = new RegExp(`${geocodingUrlBase}/*`);
     mock.onGet(geocodingUrl).reply(404)
 
@@ -145,7 +145,7 @@ describe('WeatherContent.vue Tests with Failed HTTP GET call for coordinates', (
 
     // Check that one call was made to axios.get()
     expect(mock.history.get.length).toBe(1)
-    expect(mock.history.get[0].url).toMatch('http://api.openweathermap.org/geo/1.0/direct')
+    expect(mock.history.get[0].url).toMatch('https://api.openweathermap.org/geo/1.0/direct')
     expect(mock.history.get[0].method).toMatch('get')
     
     // check that 0 calls were made to `store.addCity`
@@ -164,7 +164,7 @@ describe('WeatherContent.vue Tests with Failed HTTP GET call for current weather
   beforeEach(() => {
     // Mock any GET requests to the Geocoding API of Open Weather
     // NOTE: arguments for reply are (status, data, headers)
-    const geocodingUrlBase = "http://api.openweathermap.org/geo/1.0/direct"
+    const geocodingUrlBase = "https://api.openweathermap.org/geo/1.0/direct"
     const geocodingUrl = new RegExp(`${geocodingUrlBase}/*`);
     mock.onGet(geocodingUrl).reply(200, [
       {
@@ -177,7 +177,7 @@ describe('WeatherContent.vue Tests with Failed HTTP GET call for current weather
     ])
 
     // Mock any GET requests to the Current Weather Data API of Open Weather to fail (404 - Not Found)
-    const weatherUrlBase = "http://api.openweathermap.org/data/2.5/weather"
+    const weatherUrlBase = "https://api.openweathermap.org/data/2.5/weather"
     const weatherUrl = new RegExp(`${weatherUrlBase}/*`);
     mock.onGet(weatherUrl).reply(404)
 
@@ -209,9 +209,9 @@ describe('WeatherContent.vue Tests with Failed HTTP GET call for current weather
 
     // Check that two calls were made to axios.get()
     expect(mock.history.get.length).toBe(2)
-    expect(mock.history.get[0].url).toMatch('http://api.openweathermap.org/geo/1.0/direct')
+    expect(mock.history.get[0].url).toMatch('https://api.openweathermap.org/geo/1.0/direct')
     expect(mock.history.get[0].method).toMatch('get')
-    expect(mock.history.get[1].url).toMatch('http://api.openweathermap.org/data/2.5/weather')
+    expect(mock.history.get[1].url).toMatch('https://api.openweathermap.org/data/2.5/weather')
     expect(mock.history.get[1].method).toMatch('get')
     
     // check that 0 calls were made to `store.addCity`

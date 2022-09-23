@@ -49,7 +49,7 @@ const searchCity = async (inputCity) => {
   // GET request for retrieving the coordinates (latitude, longitude) for the specified city
   // using the Geocoding API from OpenWeather (https://openweathermap.org/api/geocoding-api) 
   try {
-    const response = await axios.get('http://api.openweathermap.org/geo/1.0/direct?q=' + inputCity + '&APPID=' + openweathermapApiKey.value)
+    const response = await axios.get('https://api.openweathermap.org/geo/1.0/direct?q=' + inputCity + '&APPID=' + openweathermapApiKey.value)
 
     // handle success
     console.log("Successfully retrieved coordinates for " + inputCity + ": " + response.data[0].lat + ", " + response.data[0].lon)
@@ -71,7 +71,7 @@ const searchCity = async (inputCity) => {
     // GET request for retrieving the current weather data using the Current
     // Weather Data API from OpenWeather (https://openweathermap.org/current) 
     try {
-      const response2 = await axios.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=imperial&APPID=' + openweathermapApiKey.value)
+      const response2 = await axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=imperial&APPID=' + openweathermapApiKey.value)
 
       // handle success
       console.log("Retrieved current temperature: " + response2.data.main.temp)
